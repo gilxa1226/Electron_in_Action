@@ -1,0 +1,19 @@
+{
+  "name": "bookmarker",
+  "version": "1.0.0",
+  "description": "Bookmarker application from Election In Action by Steve Kinney",
+  "main": "./app/main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "electron .", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Michael Haller",
+  "license": "ISC",
+  "dependencies": {
+    "electron-prebuilt": "^1.2.5"
+  }
+}
