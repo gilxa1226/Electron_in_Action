@@ -7,11 +7,22 @@ const clearStorageButton 	= document.querySelector('.clear-storage');
 const parser				= new DOMParser();
 const {shell}				= require('electron');
 
-newLinkUrl.addEventListener('keyup', () => {
-	newLinkSubmit.disabled = !newLinkUrl.validity.valid;
-});
+newLinkUrl.addEventListener('keyup', newLinkUrlEvent);
 
-newLinkForm.addEventListener('submit', (event) => {
+newLinkForm.addEventListener('submit', newLinkFormEvent);
+
+clearStorageButton.addEventListener('click', clearStorage);
+
+linksSection.addEventListener('click', linksSectionEvent);
+
+function linksSectionEvent(event){
+	if (event.target.href) {
+		event.preventDefault();
+		shell.openExternal(event.target.href);
+	}
+}
+
+function newLinkFormEvent(event) {
 	event.preventDefault();
 
 	const url = newLinkUrl.value;
@@ -25,19 +36,16 @@ newLinkForm.addEventListener('submit', (event) => {
 		.then(clearForm)
 		.then(renderLinks)
 		.catch(error => handleError(error, url));
-});
+}
 
-clearStorageButton.addEventListener('click', function clearStorage() {
+function newLinkUrlEvent() {
+	newLinkSubmit.disabled = !newLinkUrl.validity.valid;
+}
+
+function clearStorage() {
 	localStorage.clear();
 	linksSection.innerHTML = '';
-});
-
-linksSection.addEventListener('click', (event) => {
-	if (event.target.href) {
-		event.preventDefault();
-		shell.openExternal(event.target.href);
-	}
-});
+}
 
 function clearForm() {
 	newLinkUrl.value = null;	
