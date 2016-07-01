@@ -8,11 +8,8 @@ const parser				= new DOMParser();
 const {shell}				= require('electron');
 
 newLinkUrl.addEventListener('keyup', newLinkUrlEvent);
-
 newLinkForm.addEventListener('submit', newLinkFormEvent);
-
 clearStorageButton.addEventListener('click', clearStorage);
-
 linksSection.addEventListener('click', linksSectionEvent);
 
 function linksSectionEvent(event){
