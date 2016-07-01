@@ -37,7 +37,7 @@ linksSection.addEventListener('click', (event) => {
 		event.preventDefault();
 		shell.openExternal(event.target.href);
 	}
-})
+});
 
 function clearForm() {
 	newLinkUrl.value = null;	
