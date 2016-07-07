@@ -1,0 +1,5 @@
+{
+	"version": "0.1.0",
+	"command": "notes/node_modules/electron-prebuilt/dist/electron.exe",
+	"args": ["notes/lib/main.js"]
+}
